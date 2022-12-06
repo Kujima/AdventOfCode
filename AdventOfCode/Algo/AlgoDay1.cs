@@ -2,14 +2,18 @@
 
 namespace AdventOfCode.Algo;
 
-public static class AlgoDay1
+public class AlgoDay1 : IAlgoDay
 {
-    private static readonly string InputPath = @"./Inputs/";
-    private static readonly string InputName = "InputDay1.txt";
-    private static readonly string InputPathFormat = InputPath + InputName;
-    public static void Solve1()
+    private readonly string DayNumber;
+
+    public AlgoDay1(string dayNumber)
     {
-        string[] lines = InputProvider.GetContent(InputPathFormat);
+        DayNumber = dayNumber;
+    }
+
+    public void Solve1()
+    {
+        string[] lines = InputProvider.GetContent(DayNumber);
 
         int total = 0;
         int max = 0;
@@ -33,9 +37,9 @@ public static class AlgoDay1
         Console.WriteLine(max);
     }
 
-    public static void Solve2()
+    public void Solve2()
     {
-        string[] lines = InputProvider.GetContent(InputPathFormat);
+        string[] lines = InputProvider.GetContent(DayNumber);
 
         int total = 0;
         int max = 0;
