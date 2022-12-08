@@ -100,26 +100,38 @@ public class AlgoDay3 : IAlgoDay
     {
         string[] lines = InputProvider.GetContent(this.DayNumber);
 
-        string firstRucksack = "";
-        string secondRucksack = "";
-        string thirdRucksack = "";
-        List<int> listScoreRucksackGroup = new List<int>();
+        //string firstRucksack = "";
+        //string secondRucksack = "";
+        //string thirdRucksack = "";
+        //List<int> listScoreRucksackGroup = new List<int>();
 
-        for (int i = 0; i < lines.Length; i += 3)
-        {
-            firstRucksack = lines[i];
-            secondRucksack = lines[i + 1];
-            thirdRucksack = lines[i + 2];
+        //for (int i = 0; i < lines.Length; i += 3)
+        //{
+        //    firstRucksack = lines[i];
+        //    secondRucksack = lines[i + 1];
+        //    thirdRucksack = lines[i + 2];
 
-            foreach (var c in firstRucksack)
-            {
-                if (secondRucksack.Contains(c) && thirdRucksack.Contains(c))
-                {
-                    listScoreRucksackGroup.Add(categoryScore[c]);
-                    break;
-                }
-            }
-        }
-        Console.WriteLine(listScoreRucksackGroup.Sum());
+        //    foreach (var c in firstRucksack)
+        //    {
+        //        if (secondRucksack.Contains(c) && thirdRucksack.Contains(c))
+        //        {
+        //            listScoreRucksackGroup.Add(categoryScore[c]);
+        //            break;
+        //        }
+        //    }
+        //}
+        //Console.WriteLine(listScoreRucksackGroup.Sum());
+
+        // JL gros cerveau
+        var score = lines
+            .Chunk(3)
+            // fait l'intersection
+            .Select(group => group[0].Intersect(group[1]).Intersect(group[2]))
+            // Calcule le score pour chaque gro
+            .Select(set => categoryScore[set.First()])
+            // La somme
+            .Sum();
+
+        Console.WriteLine(score);
     }
 }
