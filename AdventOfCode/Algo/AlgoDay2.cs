@@ -22,12 +22,11 @@ public class AlgoDay2 : IAlgoDay
         {
             opponentHand = line.Substring(0, 1);
             meHand = line.Substring(2);
-            
+
             scoreList.Add(CalculateRoundScore1(meHand, opponentHand));
         }
 
         Console.WriteLine(scoreList.Sum());
-
     }
 
     private int CalculateRoundScore1(string meHand, string opponentHand)
@@ -45,7 +44,7 @@ public class AlgoDay2 : IAlgoDay
         }
         else if (meHand == "X" && opponentHand == "C")
         {
-            // rock + win 
+            // rock + win
             score = 1 + 6;
         }
         else if (meHand == "Y" && opponentHand == "A")
@@ -55,7 +54,7 @@ public class AlgoDay2 : IAlgoDay
         }
         else if (meHand == "Y" && opponentHand == "B")
         {
-            // paper + draw 
+            // paper + draw
             score = 2 + 3;
         }
         else if (meHand == "Y" && opponentHand == "C")
@@ -70,14 +69,15 @@ public class AlgoDay2 : IAlgoDay
         }
         else if (meHand == "Z" && opponentHand == "B")
         {
-            // Scissors + Win 
+            // Scissors + Win
             score = 3 + 6;
         }
         else if (meHand == "Z" && opponentHand == "C")
         {
             // Scissors + draw
             score = 3 + 3;
-        };
+        }
+        ;
 
         return score;
     }
@@ -88,7 +88,7 @@ public class AlgoDay2 : IAlgoDay
         if (resultRound == "X" && opponentHand == "A")
         {
             // lost + Scissors
-            score = 3 ;
+            score = 3;
         }
         else if (resultRound == "X" && opponentHand == "B")
         {
@@ -103,7 +103,7 @@ public class AlgoDay2 : IAlgoDay
         else if (resultRound == "Y" && opponentHand == "A")
         {
             // draw + Rock
-            score = 3 + 1 ;
+            score = 3 + 1;
         }
         else if (resultRound == "Y" && opponentHand == "B")
         {
@@ -129,7 +129,8 @@ public class AlgoDay2 : IAlgoDay
         {
             // Win + Rock
             score = 6 + 1;
-        };
+        }
+        ;
 
         return score;
     }
@@ -151,6 +152,4 @@ public class AlgoDay2 : IAlgoDay
 
         Console.WriteLine(scoreList.Sum());
     }
-
-
 }
