@@ -30,7 +30,7 @@ public class AlgoDay1 : IAlgoDay
             }
             else
             {
-                total += int.Parse(line);            
+                total += int.Parse(line);
             }
         }
 
