@@ -73,18 +73,6 @@ public class AlgoDay5 : IAlgoDay
         }
     }
 
-    private int GetIndexLineStartToMove(string[] lines)
-    {
-        for (int i = 0; i < lines.Length; i++)
-        {
-            if (lines[i].First() is 'm')
-            {
-                return i;
-            }
-        }
-        return -1;
-    }
-
     private Dictionary<int, Stack<char>> SetContentStacks(string[] lines)
     {
         Dictionary<int, Stack<char>> stacks = new Dictionary<int, Stack<char>>();
@@ -121,11 +109,12 @@ public class AlgoDay5 : IAlgoDay
 
     public void SetFeaturesStacks(string[] lines)
     {
-        int number;
+        this.NumberOfStacks = 0;
+        this.HeightStackMax = 0;
         foreach (var line in lines)
         {
             var splitLines = line.Split(' ').Where(x => x != "");
-            if (int.TryParse(splitLines.First(), out number))
+            if (int.TryParse(splitLines.First(), out int number))
             {
                 this.NumberOfStacks = int.Parse(splitLines.Last());
                 break;
@@ -134,5 +123,56 @@ public class AlgoDay5 : IAlgoDay
         }
     }
 
-    public void Solve2() { }
+    public void Solve2()
+    {
+        this.Stacks.Clear();
+        var lines = InputProvider.GetContent(this.DayNumber);
+
+        SetFeaturesStacks(lines);
+
+        this.Stacks = SetContentStacks(lines);
+
+        int indexLineStartToMove = 0;
+        for (int i = 0; i < lines.Length; i++)
+        {
+            if (!string.IsNullOrEmpty(lines[i]))
+            {
+                if (lines[i].First() is 'm')
+                {
+                    indexLineStartToMove = i;
+                    break;
+                }
+            }
+        }
+
+        string instructionLine;
+        List<string> instructions = new List<string>();
+        for (int j = indexLineStartToMove; j < lines.Length; j++)
+        {
+            instructionLine = lines[j].Replace("move", "").Replace("from", "").Replace("to", "");
+            instructions = instructionLine.Split(' ').Where(x => x != "").ToList();
+
+            MoveCrateTo2(
+                increment: int.Parse(instructions[0]),
+                startStack: int.Parse(instructions[1]),
+                destinationStack: int.Parse(instructions[2])
+            );
+        }
+
+        PrintTopOfAllStacks();
+    }
+
+    private void MoveCrateTo2(int increment, int startStack, int destinationStack)
+    {
+        List<char> tempList = new List<char>();
+        for (int i = increment; i > 0; i--)
+        {
+            tempList.Add(this.Stacks[startStack].Pop());
+        }
+
+        for (int j = tempList.Count - 1; j >= 0; j--)
+        {
+            this.Stacks[destinationStack].Push(tempList[j]);
+        }
+    }
 }
