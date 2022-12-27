@@ -6,9 +6,9 @@ public class AlgoDay2 : IAlgoDay
 {
     private readonly string DayNumber;
 
-    public AlgoDay2(string dayNumber)
+    public AlgoDay2()
     {
-        DayNumber = dayNumber;
+        this.DayNumber = typeof(AlgoDay6).Name.Last().ToString();
     }
 
     public void Solve1()

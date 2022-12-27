@@ -9,9 +9,9 @@ public class AlgoDay5 : IAlgoDay
     private int NumberOfStacks = 0;
     private Dictionary<int, Stack<char>> Stacks;
 
-    public AlgoDay5(string dayNumber)
+    public AlgoDay5()
     {
-        DayNumber = dayNumber;
+        this.DayNumber = typeof(AlgoDay5).Name.Last().ToString();
     }
 
     public void Solve1()

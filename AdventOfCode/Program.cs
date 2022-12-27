@@ -1,6 +1,6 @@
 ﻿using AdventOfCode.Algo;
 
-var algoDay = new AlgoDay6("6");
+var algoDay = new AlgoDay6();
 
 algoDay.Solve1();
 algoDay.Solve2();
