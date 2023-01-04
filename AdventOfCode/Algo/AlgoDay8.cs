@@ -1,6 +1,7 @@
 ﻿namespace AdventOfCode.Algo;
 
 using System;
+using System.Security;
 
 public class AlgoDay8 : IAlgoDay
 {
@@ -126,26 +127,27 @@ public class AlgoDay8 : IAlgoDay
 
     public void Solve2()
     {
-        List<int> listScenicScore = new();
         var x = 0;
         var y = 0;
+        int topScenicScore = 0;
+        int currentScenicScore = 0;
 
         while (y < YMax)
         {
             while (x < XMax)
             {
-                if (x == 0 || y == 0 || x == XMax - 1 || y == YMax - 1)
+                if (x != 0 && y != 0 && x != XMax - 1 && y != YMax - 1)
                 {
-                    listScenicScore.Add(0);
-                }
-                else
-                {
-                    listScenicScore.Add(
+                    currentScenicScore =
                         GetTopScenicScore(x, y)
-                            * GetBottomScenicScore(x, y)
-                            * GetRightScenicScore(x, y)
-                            * GetLeftScenicScore(x, y)
-                    );
+                        * GetBottomScenicScore(x, y)
+                        * GetRightScenicScore(x, y)
+                        * GetLeftScenicScore(x, y);
+
+                    if (currentScenicScore > topScenicScore)
+                    {
+                        topScenicScore = currentScenicScore;
+                    }
                 }
                 x++;
             }
@@ -153,7 +155,7 @@ public class AlgoDay8 : IAlgoDay
             x = 0;
         }
 
-        Console.WriteLine(listScenicScore.OrderByDescending(x => x).First());
+        Console.WriteLine(topScenicScore);
     }
 
     private int GetLeftScenicScore(int x, int y)
