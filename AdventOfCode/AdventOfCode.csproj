@@ -16,8 +16,12 @@
 
   <ItemGroup>
     <Folder Include="2022\" />
-    <Folder Include="2023\Algo\" />
-    <Folder Include="2023\Inputs\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="2023\Inputs\*">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>

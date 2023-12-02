@@ -10,7 +10,7 @@ public static class InputProvider
 {
     public static string[] GetContent(string increment)
     {
-        string pathFile = "./Inputs/InputDay" + increment + ".txt";
+        string pathFile = "./2023/Inputs/InputDay" + increment + ".txt";
         return File.ReadAllLines(pathFile);
     }
 }
