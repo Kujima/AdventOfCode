@@ -2,14 +2,14 @@ using System.Globalization;
 
 namespace AdventOfCode._2023.Algo;
 
-public class AlgoDay1 : IAlgoDay
+public class AlgoDay1
 {
     private string[] Lines;
 
     public AlgoDay1()
     {
         var dayNumber = typeof(AlgoDay1).Name.Last().ToString();
-        this.Lines = InputProvider.GetContent(dayNumber);
+        this.Lines = InputProvider.GetContent("2023", dayNumber);
     }
 
     public void Solve1()

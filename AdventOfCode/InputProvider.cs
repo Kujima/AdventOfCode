@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 public static class InputProvider
 {
-    public static string[] GetContent(string increment)
+    public static string[] GetContent(string year, string increment)
     {
-        string pathFile = "./2024/Inputs/InputDay" + increment + ".txt";
+        string pathFile = "./" + year + "/Inputs/InputDay" + increment + ".txt";
         return File.ReadAllLines(pathFile);
     }
 }

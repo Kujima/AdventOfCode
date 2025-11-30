@@ -1,12 +1,12 @@
 namespace AdventOfCode._2023.Algo;
 
-public class AlgoDay2 : IAlgoDay
+public class AlgoDay2
 {
     private string[] Lines;
 
     public AlgoDay2()
     {
-        this.Lines = InputProvider.GetContent("2");
+        this.Lines = InputProvider.GetContent("2023", "2");
     }
 
     public void Solve1()

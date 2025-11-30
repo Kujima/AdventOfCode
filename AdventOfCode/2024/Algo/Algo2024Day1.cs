@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace AdventOfCode._2024.Algo;
 
-public class Algo2024Day1 : IAlgoDay
+public class Algo2024Day1
 {
     private string[] Lines;
 
     public Algo2024Day1()
     {
-        this.Lines = InputProvider.GetContent("1");
+        this.Lines = InputProvider.GetContent("2024", "1");
     }
 
     public void Solve1()
