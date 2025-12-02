@@ -1,6 +1,6 @@
-﻿using AdventOfCode._2023.Algo;
+﻿using AdventOfCode._2025.Algo;
 
-var algoDay = new Algo2025Day1();
+var algoDay = new Algo2025Day2();
 
 algoDay.Solve1();
 

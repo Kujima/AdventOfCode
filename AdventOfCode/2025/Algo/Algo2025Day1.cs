@@ -1,6 +1,6 @@
 using System.Globalization;
 
-namespace AdventOfCode._2023.Algo;
+namespace AdventOfCode._2025.Algo;
 
 public class Algo2025Day1
 {
@@ -37,10 +37,7 @@ public class Algo2025Day1
                 {
                     dialPointer -= dialRotate;
                 }
-                else
-                {
-                    
-                }
+                else { }
             }
 
             if (dialPointer == 0)
